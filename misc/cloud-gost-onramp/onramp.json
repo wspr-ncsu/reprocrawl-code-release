@@ -1,0 +1,9 @@
+{
+	"Debug": false,
+	"ServeNodes": [
+		"socks5://:9050"
+	],
+	"ChainNodes": [
+		"socks5+kcp://cloud.server.example.com:1080?c=/kcp.config"
+	]
+}

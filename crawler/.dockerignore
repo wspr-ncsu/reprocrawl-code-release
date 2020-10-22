@@ -1,0 +1,8 @@
+node_modules
+.git
+.gitignore
+.gitmodules
+**/*.test.js
+jest.config.js
+Makefile
+README.md

@@ -1,0 +1,4 @@
+DATA URL: https://tranco-list.eu/top-1m.csv.zip
+ID URL:https://tranco-list.eu/top-1m-id 
+ID VALUE: 77PX
+DATE: Thu Apr 30 14:14:37 UTC 2020

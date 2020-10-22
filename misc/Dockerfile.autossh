@@ -1,0 +1,14 @@
+FROM alpine
+RUN apk update && apk add autossh
+
+VOLUME /secrets
+
+ENTRYPOINT [ \
+    "/usr/bin/autossh", "-M", "0", \
+    "-oServerAliveInterval=10", \
+    "-oServerAliveCountMax=3", \
+    "-oStrictHostKeyChecking=no", \
+    "-oExitOnForwardFailure=yes", \
+    "-i", "/secrets/id_rsa", \
+    "-N"]
+

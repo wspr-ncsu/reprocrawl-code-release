@@ -1,0 +1,40 @@
+{
+    "generator": {
+        "seed": "we like deterministic experiment design!",
+        "repeats": 3,
+        "barrier": true,
+        "settings": {
+            "@site": "primary",
+            "visit.navTimeout": 30,
+            "visit.pageLoiter": 15,
+            "visit.proxy.host": "127.0.0.1",
+            "visit.proxy.port": 1080,
+	    "visit.networkConfig.minRTT": 64,
+	    "visit.networkConfig.maxUp": 83000,
+	    "visit.networkConfig.maxDown": 1600000,
+            "$context.queue": "{bc}-crawl-{site}"
+        }
+    },
+    "vantagePoints": {
+        "university": {
+            "@vp": "university"
+        },
+        "cloud": {
+            "@vp": "cloud",
+            "visit.proxy.host": "cloud-gost-onramp-svc.default.svc.cluster.local.",
+            "visit.proxy.port": 9050
+        },
+        "residential": {
+            "@vp": "residential",
+            "@site": "outpost"
+        }
+    },
+    "browserConfigs": {
+        "naive": {
+            "@bc": "naive"
+        },
+        "stealth": {
+            "@bc": "stealth"
+        }
+    }
+}

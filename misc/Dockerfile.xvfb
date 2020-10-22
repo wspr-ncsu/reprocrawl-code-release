@@ -1,0 +1,14 @@
+FROM debian:stretch
+
+RUN \
+	apt-get update -y && \
+	apt-get install -y wget xvfb
+
+USER root
+WORKDIR /opt/bin
+RUN wget -O /opt/bin/tini https://github.com/krallin/tini/releases/download/v0.18.0/tini-amd64 && chmod +x /opt/bin/tini
+
+WORKDIR /
+
+ENTRYPOINT ["/opt/bin/tini", "--"]
+CMD ["Xvfb", "-listen", "tcp", ":99"]

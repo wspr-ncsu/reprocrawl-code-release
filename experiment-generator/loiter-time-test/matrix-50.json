@@ -1,0 +1,37 @@
+{
+    "generator": {
+        "seed": "I sure hope this doesn't show that we must have longer loiter time!",
+        "repeats": 1,
+        "barrier": true,
+        "settings": {
+            "@site": "primary",
+            "visit.navTimeout": 30,
+            "visit.pageLoiter": 50,
+            "visit.proxy.host": "127.0.0.1",
+            "visit.proxy.port": 1080,
+            "$context.queue": "{bc}-crawl-{site}"
+        }
+    },
+    "vantagePoints": {
+        "university": {
+            "@vp": "university"
+        },
+        "cloud": {
+            "@vp": "cloud",
+            "visit.proxy.host": "cloud-gost-onramp-svc.default.svc.cluster.local.",
+            "visit.proxy.port": 9050
+        },
+        "residential": {
+            "@vp": "residential",
+            "@site": "outpost"
+        }
+    },
+    "browserConfigs": {
+        "naive": {
+            "@bc": "naive"
+        },
+        "stealth": {
+            "@bc": "stealth"
+        }
+    }
+}
