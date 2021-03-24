@@ -1,5 +1,24 @@
+# Synchronized Crawl Dispatcher
+
+Our crawls were queued and coordinated using `kpw` (Kubernetes Python Worker), our in-house adapter system for polyglot producer/consumer workflows on our Kubernetes cluster.
+We include this snapshot of the `kpw` source code and documentation for completeness.
+
+In our experiment we used the following work queues feeding instances of the `crawler` and `crawl-post-processor` container images described elsewhere in this code release.
+
+* queues serving pods running inside the primary k8s cluster (using the primary/on-site MongoDB instance for raw crawl data storage):
+	* `naive-crawl-primary` (headless `crawler` pods)
+	* `stealth-crawl-primary` (non-headless `crawler` pods)
+	* `vpc-postproc-primary` (`crawl-post-processor` pods pulling from on-site MongoDB and storing final/refined metrics in the central Postgres instance)
+* queues serving pods running inside the outpost k8s mini-cluster (using the outpost/off-site MongoDB instance for raw crawl data storage):
+	* `naive-crawl-outpost` (headless `crawler` pods)
+	* `stealth-crawl-outpost` (non-headless `crawler` pods)
+	* `vpc-postproc-outpost` (`crawl-post-processor` pods pulling from off-site MongoDB and storing final/refined metrics in the central Postgres instance via `autossh` tunnel)
+
+Initial jobs (see `experiment-generator` tools) are queued to the `XXX-crawl-YYY` queues with syncronization tags to ensure simulateous launch across all VPs/BCs.  Crawler pods then post completed jobs to the `vpc-postproc-YYY` queues to complete the post-processing of the raw crawl data.
+
 # kpw: Kubernetes Python Worker
-An adapter system for polyglot producer/consumer workflows on Kubernetes (k8s).
+
+*(original `kpw` project documentation)*
 
 ## Quickstart
 

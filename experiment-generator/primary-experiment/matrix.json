@@ -9,9 +9,9 @@
             "visit.pageLoiter": 15,
             "visit.proxy.host": "127.0.0.1",
             "visit.proxy.port": 1080,
-	    "visit.networkConfig.minRTT": 64,
-	    "visit.networkConfig.maxUp": 83000,
-	    "visit.networkConfig.maxDown": 1600000,
+	        "visit.networkConfig.minRTT": 64,
+	        "visit.networkConfig.maxUp": 83000,
+	        "visit.networkConfig.maxDown": 1600000,
             "$context.queue": "{bc}-crawl-{site}"
         }
     },

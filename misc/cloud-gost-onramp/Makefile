@@ -1,5 +1,5 @@
 IMAGE_BASE = cloud-gost-onramp
-IMAGE_TAG = `git rev-parse --verify --short=0 HEAD`
+IMAGE_TAG = `git rev-parse --verify --short=0 HEAD:misc/cloud-gost-onramp`
 IMAGE_NAME = $(IMAGE_BASE):$(IMAGE_TAG)
 IMAGE_REPO = localhost:5000
 
