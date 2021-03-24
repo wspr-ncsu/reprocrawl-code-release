@@ -14,9 +14,9 @@ The basic generator schema is as follows:
     * `repeats`: integer number of top-level experiment repetitions to run
     * `barrier`: boolean (synchronize or don't synchronize parallel job sets)
     * `settings`: key/value mapping providing a starting template for job object values
-        * `A.B.C`: arbitrary value to store in each job object under `job[A][B][C]`
+        * `A.B....`: arbitrary value to store in each job object under `job[A][B][...]`
         * `@name`: arbitrary value to store under "meta" key `name` (not in the generated job; used to subsequently populate `$...` template fields)
-        * `$...`: string template (e.g., `{bc}-crawl-{site}` to evaluate/populate using current meta field values (e.g., `@bc` and `@site`)
+        * `$A.B....` string template (e.g., `{bc}-crawl-{site}` to evaluate/populate using current meta field values (e.g., `@bc` and `@site`) and store in `job[A][B][...]`
 * `vantagePoints`: key/value mapping of VP names to custom settings overrides
     * `VP_NAME`: settings object like `generator.settings` above
     * `...`

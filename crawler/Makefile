@@ -8,7 +8,7 @@ BASE_IMAGE = $(DOCKER_REPO)/vv8-chrome-80.0.3987.163-1_amd64
 TAG_ROOT = vpc-crawl-worker-vv8-chrome80
 
 # Computed tag name based on Git hash and given name
-TAG_HASH = $(shell git rev-parse --verify --short=0 HEAD)
+TAG_HASH = $(shell git rev-parse --verify --short=0 HEAD:crawler)
 IMAGE_TAG = $(TAG_ROOT):$(TAG_HASH)
 
 # Default: build the Docker image locally

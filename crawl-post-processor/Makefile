@@ -1,13 +1,7 @@
-# Where to push the image for "make up" (and where we may get the base image)
-DOCKER_REPO = localhost:5000
-
-# This is the given name of this vpc build (should include the base browser build version/features)
 TAG_ROOT = vpcpp-syncdb2020-webhook
-
-# Computed tag name based on Git hash and given name
-TAG_HASH = $(shell git rev-parse --verify --short=0 HEAD)
+TAG_HASH = $(shell git rev-parse --verify --short=0 HEAD:crawl-post-processor)
 IMAGE_TAG = $(TAG_ROOT):$(TAG_HASH)
-
+DOCKER_REPO = localhost:5000
 
 # Default: build the local CLI binary with version tag embedded
 binary:
